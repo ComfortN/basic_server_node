@@ -3,6 +3,11 @@ const http = require('http');
 const PORT = 8887;
 const localhost = 'localhost';
 
+let serverInfo = {
+    name: 'Basic Node.js Server',
+    version: '20.9.0',
+    description: 'A simple HTTP server with multiple routes and request methods.'
+};
 
 const server = http.createServer((req, res) => {
     console.log(`Received ${req.method} request for ${req.url}`);
@@ -37,7 +42,19 @@ const server = http.createServer((req, res) => {
             res.writeHead(405, { 'Content-Type': 'text/plain' });
             res.end('Method Not Allowed');
         }
-    } else {
+    } else if (req.url === '/about') {
+        if (req.method === 'GET') {
+            res.writeHead(200, {'Content-Type': 'application/json'});
+            res.end(JSON.stringify(serverInfo));
+
+        } else {
+            res.writeHead(405, { 'Content-Type': 'text/plain' });
+            res.end('Method Not Allowed');
+        }
+    }
+    
+    
+    else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 Not Found');
     }
