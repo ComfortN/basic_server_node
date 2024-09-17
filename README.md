@@ -22,14 +22,14 @@ This project is a simple HTTP server built with Node.js. It demonstrates handlin
 1. Clone this repository to your local machine:
 
 ```
-    git clone <repository-url>
+    git clone https://github.com/ComfortN/basic_server_node.git
 ```
 
 
 2. Navigate to the project directory:
 
 ```
-    cd basic-nodejs-server
+    cd basic_server_node
 ```
 
 
